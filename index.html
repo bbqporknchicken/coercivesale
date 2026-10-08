@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>外籍保養品品牌在台大全</title>
+  <style>
+    :root {
+      --bg: #0f1115; --card: #1a1d24; --text: #e8eaed; --muted: #9aa0a6;
+      --accent: #ff4d4f; --accent-soft: rgba(255, 77, 79, 0.15); --border: #2a2f3a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+    header { padding: 48px 20px 32px; text-align: center; background: linear-gradient(180deg,#1c1012 0%,var(--bg) 100%); border-bottom: 1px solid var(--border); }
+    header h1 { font-size: clamp(1.6rem,4vw,2.2rem); }
+    header p { color: var(--muted); max-width: 560px; margin: 12px auto 0; font-size: 0.95rem; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 24px 16px 80px; }
+    .disclaimer { background: var(--accent-soft); border: 1px solid rgba(255,77,79,.35); border-radius: 12px; padding: 16px 18px; font-size: 0.88rem; color: #ffccc7; margin-bottom: 24px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .toolbar input, .toolbar select { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 10px 12px; border-radius: 8px; font-size: 0.95rem; }
+    .toolbar input { flex: 1; min-width: 200px; }
+    .stats { color: var(--muted); font-size: 0.85rem; margin-bottom: 16px; }
+    .card { scroll-margin-top: 16px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px; margin-bottom: 14px; }
+    .card h2 { font-size: 1.55rem; margin-bottom: 8px; letter-spacing: 0.02em; }
+    .tag { display: inline-block; font-size: 0.72rem; padding: 3px 8px; border-radius: 999px; background: var(--accent-soft); color: #ff7875; margin-bottom: 8px; }
+    .section-label { margin: 14px 0 8px; font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+    ul.links { list-style: none; padding-left: 0; }
+    ul.links li { position: relative; margin: 6px 0; padding-left: 16px; font-size: 0.9rem; word-break: break-word; }
+    ul.links li::before { content: "•"; position: absolute; left: 0; top: 0; color: #9aa0a6; }
+    ul.links a { color: #7eb6ff; text-decoration: none; line-height:1.45; }
+    .addr { position: relative; color: #d0d4db; font-size: 0.92rem; margin: 4px 0; padding-left: 16px; }
+    .addr::before { content: "•"; position: absolute; left: 0; top: 0; color: #9aa0a6; }
+    .preview { position: relative; display: flex; gap: 12px; background: #12151c; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; margin: 8px 0 10px 16px; }
+    .preview::before { content: "•"; position: absolute; left: -16px; top: 10px; color: #9aa0a6; }
+    .preview img { width: 168px; min-height: 94px; object-fit: cover; background: #000; flex-shrink: 0; }
+    .preview .body { padding: 10px 12px; }
+    .preview .kicker { font-size: 0.7rem; color: #9aa0a6; }
+    .preview .title { font-size: 0.9rem; color: #e8eaed; font-weight: 600; }
+    .empty { color: #6b7280; font-size: 0.85rem; }
+    .form-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 16px 8px; margin-top: 36px; }
+    .form-box h2 { font-size: 1.15rem; margin-bottom: 10px; text-align: center; }
+    .form-box p { color: var(--muted); font-size: 0.85rem; text-align: center; margin-bottom: 14px; }
+    .form-box .open-btn { display: block; width: 100%; max-width: 360px; margin: 8px auto 16px; text-align: center; background: #1a73e8; color: #fff; text-decoration: none; padding: 12px 16px; border-radius: 10px; font-weight: 600; }
+    .form-box .open-btn:hover { background: #1557b0; }
+    footer { text-align: center; color: var(--muted); font-size: 0.8rem; padding: 24px; }
+    @media (max-width:560px){ .preview{flex-direction:column;} .preview img{width:100%;min-height:140px;} }
+  
+    .tree-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 14px 22px; margin: 28px 0 18px; overflow-x: auto; }
+    .tree-box h2 { font-size: 1.2rem; margin-bottom: 6px; }
+    .tree-box .note { color: var(--muted); font-size: 0.82rem; margin-bottom: 12px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 0.76rem; color: var(--muted); margin-bottom: 16px; }
+    .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+    .ppt { min-width: 760px; }
+    .root { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .branches { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 18px; position: relative; }
+    .branches::before { content: ""; position: absolute; top: -16px; left: 16.6%; right: 16.6%; border-top: 2px solid #5a6270; }
+    .branch { background: #15181e; border: 1px solid var(--border); border-radius: 12px; padding: 12px 10px; display: flex; flex-direction: column; align-items: center; gap: 7px; position: relative; }
+    .branch::before { content: ""; position: absolute; top: -16px; left: 50%; height: 16px; border-left: 2px solid #5a6270; }
+    .node { position: relative; display: inline-block; }
+    .chip { display: inline-block; padding: 6px 10px; border-radius: 8px; font-size: 0.82rem; line-height: 1.35; border: 1px solid var(--border); background: #22262e; color: var(--text); text-decoration: none; text-align: center; }
+    .chip.brand { background: #3b2454; border-color: #7b5aa8; color: #f0e6ff; }
+    .chip.green { background: #1b3a28; border-color: #3d8f5c; }
+    .chip.blue { background: #1a2d44; border-color: #3d6ea3; }
+    .chip.orange { background: #3a2a16; border-color: #c07a2a; }
+    .chip.company { background: #2a2f3a; }
+    .chip.shared { border-style: dashed; border-color: #c07a2a; }
+    a.chip:hover { filter: brightness(1.15); }
+    .sub { display: block; font-size: 0.7rem; color: var(--muted); }
+    .lab { font-size: 0.7rem; color: var(--muted); margin-top: 4px; }
+    .own { display: flex; flex-direction: column; align-items: center; gap: 6px; background: #15181e; border: 1px dashed #3d8f5c; border-radius: 10px; padding: 10px 12px; }
+    .tip {
+      display: none; position: absolute; left: 50%; transform: translateX(-50%);
+      top: 100%; z-index: 30; background: #111; border: 1px solid #c07a2a;
+      color: #ffe7c2; font-size: 0.74rem; padding: 8px 10px; margin-top: 0;
+      border-radius: 8px; width: max-content; max-width: 260px;
+    }
+    .tip::before {
+      content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px;
+    }
+    .node:hover > .tip, .node.open > .tip { display: block; }
+    a.tip { color:#ffe7c2; text-decoration:none; cursor: pointer; }
+    a.tip:hover { text-decoration:underline; }
+    
+    .tip-list { display: none; flex-direction: column; gap: 6px; text-align: left; }
+    .node:hover > .tip-list, .node.open > .tip-list { display: flex; }
+    .tip a { color: #ffe7c2; text-decoration: none; display: block; }
+    .tip a:hover { text-decoration: underline; }
+    
+    .branches::before { left: 16.6%; right: 50%; }
+    .branch.no-link::before { display: none; }
+    .dash-note { border-top: 1px dashed #c07a2a; margin-top: 14px; padding-top: 8px; font-size: 0.78rem; color: #e0b06a; }
+
+  </style>
+</head>
+<body>
+<header>
+  <h1>外籍保養品品牌在台大全</h1>
+  <p>最後更新：2026-10-03</p>
+</header>
+<div class="wrap">
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="搜尋品牌、地址、連結…" oninput="filterCards()" />
+    <select id="cat" onchange="filterCards()">
+      <option value="">全部品牌</option>
+      <option>Vine Vera</option><option>Lavelier</option><option>Opatra</option>
+      <option>Truffoire</option><option>L’core</option><option>Orogold</option>
+      <option>Seacret</option><option>Gratiae</option><option>Pearl de Flore</option>
+      <option>Lionesse</option><option>Arthemis</option><option>Introstem</option>
+      <option>Avinichi</option>
+      <option>Napara</option><option>Hydrasphere＋</option>
+    </select>
+    <select id="region" onchange="filterCards()">
+      <option value="">全部地區</option>
+      <option>台北市</option>
+      <option>新北市</option>
+      <option>桃園市</option>
+      <option>新竹縣</option>
+      <option>台中市</option>
+      <option>台南市</option>
+      <option>地址未提供</option>
+    </select>
+  </div>
+  <div class="stats" id="stats"></div>
+
+<article id="brand-vine-vera" class="card" data-cat="Vine Vera" data-region="台北市 桃園市"><h2>Vine Vera</h2><span class="tag">Vine Vera</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.pttweb.cc/bbs/BeautySalon/M.1652106038.A.7DC" target="_blank" rel="noopener">[反推] 誤入信義微風 Vine vera 的銷售陷阱。朋友最近的親身…（2022-05-09）</a></li>
+<li><a href="https://www.threads.com/share/D-9GcYNCY/" target="_blank" rel="noopener">我真的很不會拒絕別人☹️剛剛在中山一個男生給了我一個試用包，我一直說不…</a></li>
+<li><a href="https://www.facebook.com/groups/289710477900380/posts/3091100844427982/" target="_blank" rel="noopener">提醒大家經過桃園火車站附近 Vine Vera 保養品店時要提高警覺。…</a></li>
+<li><a href="https://www.threads.com/share/HFvL5hRpz/" target="_blank" rel="noopener">我覺得我一定要站出來發文。桃園火車站前站鋼珠店隔壁的「Vine Ver…</a></li>
+<li><a href="https://www.threads.com/share/GVfDT7SFX/" target="_blank" rel="noopener">先說結論，大家經過 Vine Vera 這家店如果有被推銷記得果斷說不…</a></li>
+<li><a href="https://www.threads.com/share/FKKNTWoHb/" target="_blank" rel="noopener">每次經過這條路都會被攔下來推銷⋯😅桃園人都懂吧？</a></li>
+<li><a href="https://www.threads.com/share/DN0wsbDdk/" target="_blank" rel="noopener">之前在忠孝 Vine vera 看一個阿姨一直被拒絕，想說幫她拿一下試…</a></li>
+<li><a href="https://www.dcard.tw/f/makeup/p/260749613" target="_blank" rel="noopener">Dcard 美妝板討論（頁面被擋，暫無法抓取全文開頭）</a></li>
+<li><a href="https://www.threads.com/share/QTMAKu3mn/" target="_blank" rel="noopener">‼️女生請小心‼️中山站商圈的這兩間店真的超噁！都會在路上攔人、強迫推…</a></li>
+<li><a href="https://www.threads.com/share/GdNodQU36/" target="_blank" rel="noopener">已經受不了長期在中山區南京東路ㄧ段的騎樓下遭噁男攔路推…</a></li>
+<li><a href="https://www.threads.com/share/JSpQlhpWD/" target="_blank" rel="noopener">早上吃完摩斯我去逛新光三越，媽媽在摩斯等我後來叫媽媽來新光找…</a></li>
+<li><a href="https://www.threads.com/share/F3i5_I-K7/" target="_blank" rel="noopener">桃園市議員黃瓊慧親自蒐證</a></li>
+<li><a href="https://www.threads.com/share/E0xyris_p/" target="_blank" rel="noopener">我上次有次去買繼光香香雞，也被問鞋子然後硬要拉我進去店…</a></li>
+<li><a href="https://www.threads.com/share/GgPx1FgFn/" target="_blank" rel="noopener">剛經過中山站附近的vine v**a強迫推銷詐騙店（南京東路一段金豬對面）親眼…</a></li>
+<li><a href="https://www.threads.com/share/GeL5IF1Je/" target="_blank" rel="noopener">微風南京B1 一邊是Vine Vera 另一邊是（不知道什麼品牌）往左往右都不能走…</a></li>
+</ul>
+<div class="section-label">相關新聞</div>
+<a class="preview" href="https://www.youtube.com/watch?v=QJGz2-YZjrs" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/QJGz2-YZjrs/hqdefault.jpg" alt=""><div class="body"><div class="kicker">YouTube</div><div class="title">以色列男攔路推銷保養品 女控錄影還遭恐嚇</div></div></a>
+<div class="section-label">門店地址</div>
+<p class="addr">台北市信義區松智路17號B1（微風南山2F）</p>
+<p class="addr">台北市大安區忠孝東路五段68號（微風信義3F）</p>
+<p class="addr">台北市中山區南京東路一段42號</p>
+<p class="addr">台北市大安區忠孝東路四段128號</p>
+<p class="addr">台北市大安區復興南路一段133號</p>
+<p class="addr">桃園市桃園區中正路39號</p>
+<p class="addr">台北市南港區忠孝東路七段 369 號（CityLink 南港 2F）</p>
+<p class="addr">臺北市士林區天福里天母東路68號（天母新光三越 1F）</p>
+</article>
+
+<article id="brand-lavelier" class="card" data-cat="Lavelier" data-region="台北市"><h2>Lavelier</h2><span class="tag">Lavelier</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.ptt.cc/bbs/BeautySalon/M.1583172380.A.313.html" target="_blank" rel="noopener">[反推] 微風南山Lavelier。3/1在微風南山經過2F此櫃看到一…（2020-03-03）</a></li>
+<li><a href="https://www.threads.com/share/E2ioA6Dj_/" target="_blank" rel="noopener">剛剛在 ig 上看到一篇文，被 Lavelier 騙刷了 9 萬多的，…</a></li>
+<li><a href="https://www.threads.com/share/QTMAKu3mn/" target="_blank" rel="noopener">‼️女生請小心‼️中山站商圈的這兩間店真的超噁！都會在路上攔人、強迫推…</a></li>
+<li><a href="https://share.google/agonZRsZ2YQ2i4bDh" target="_blank" rel="noopener">Google 地圖評論 1</a></li>
+<li><a href="https://share.google/xsv2KiJnLTUvLUjuK" target="_blank" rel="noopener">Google 地圖評論 2</a></li>
+<li><a href="https://share.google/NtgGHw3tL5dUdEtHp" target="_blank" rel="noopener">Google 地圖評論 3</a></li>
+</ul>
+<div class="section-label">相關新聞</div>
+<ul class="links">
+<li><a href="https://tw.news.yahoo.com/share/63f6d4a6-5d80-3652-bf2e-677ba8c8176d" target="_blank" rel="noopener">北市中山商圈保養品牌疑涉強迫推銷 網友喊「嚇瘋」…驚動議員處理（2026-06-17）</a></li>
+<li><a href="https://www.storm.mg/article/11073641" target="_blank" rel="noopener">「郭董也買過」他被這句話騙9萬元，店家拒退還嗆聲，只要懂一件事就能…（2025-10-13）</a></li>
+</ul>
+<a class="preview" href="https://www.youtube.com/watch?v=I8ajDlLSAJc" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/I8ajDlLSAJc/hqdefault.jpg" alt=""><div class="body"><div class="kicker">YouTube</div><div class="title">路過外籍帥哥推銷 2盒眼部精華7.8萬（2026-03-10）</div></div></a>
+<a class="preview" href="https://www.youtube.com/watch?v=FTs_62oFWlw" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/FTs_62oFWlw/hqdefault.jpg" alt=""><div class="body"><div class="kicker">YouTube</div><div class="title">女控結帳「9千變9萬」（2025-10-13）</div></div></a>
+<a class="preview" href="https://www.youtube.com/watch?v=RxslWXyuGx8" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/RxslWXyuGx8/hqdefault.jpg" alt=""><div class="body"><div class="kicker">YouTube</div><div class="title">老外強迫推銷！ 顧客想退費竟被要求簽「保密合約」（2025-04-06）</div></div></a>
+<a class="preview" href="https://www.youtube.com/watch?v=Yy-wQlbCz9s" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/Yy-wQlbCz9s/hqdefault.jpg" alt=""><div class="body"><div class="kicker">YouTube</div><div class="title">東區外國人強迫推銷 警移民勞動局稽查（2021-03-12）</div></div></a>
+
+
+<div class="section-label">門店地址</div>
+<p class="addr">台北市中山區中山北路二段4-2號</p>
+<p class="addr">台北市松山區南京東路四段51號</p>
+</article>
+
+<article id="brand-opatra" class="card" data-cat="Opatra" data-region="台北市"><h2>Opatra</h2><span class="tag">Opatra</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.plurk.com/p/pgwznw" target="_blank" rel="noopener">決定還是發上來警示一下好了，關於媽媽被百貨公司專櫃的詐騙(?)保養品推…（2023-12-02）</a></li>
+<li><a href="https://www.facebook.com/groups/518642881982901/posts/2016764135504094/" target="_blank" rel="noopener">天母朋友們請留意高島屋一樓的Opatra，店員會直接倒一坨東西在你手上…</a></li>
+<li><a href="https://www.facebook.com/groups/518642881982901/permalink/1874582426388933/" target="_blank" rel="noopener">謝謝天母人給我的鼓勵，分享給我好多台灣消費者權利的資訊。我今天到天母新光找樓管…</a></li>
+<li><a href="https://www.threads.com/share/D2qU7XlT8/" target="_blank" rel="noopener">大家小心忠孝東路四段222號左右的這家 OPATRA LONDON。弄…</a></li>
+<li><a href="https://www.dcard.tw/f/makeup/p/260749613" target="_blank" rel="noopener">Dcard 美妝板討論（頁面被擋，暫無法抓取全文開頭）</a></li>
+</ul>
+<div class="section-label">相關新聞</div>
+<ul class="links">
+<li><a href="https://tw.news.yahoo.com/share/333d2c2c-5b33-37ce-90d5-4a3215fc28bf" target="_blank" rel="noopener">不滿美容儀療效誇大 男子被強迫消費近14萬（2026-01-04）</a></li>
+</ul>
+<div class="section-label">門店地址</div>
+<p class="addr">臺北市大安區車層里忠孝東路四段222號</p>
+<p class="addr">台北市士林區忠誠路二段55號（大葉高島屋 1樓）</p>
+</article>
+
+<article id="brand-truffoire" class="card" data-cat="Truffoire" data-region="台北市 台南市"><h2>Truffoire</h2><span class="tag">Truffoire</span>
+<div class="section-label">相關帖文</div><p class="empty">列表未提供</p>
+<div class="section-label">相關新聞</div><p class="empty">列表未提供</p>
+<div class="section-label">門店地址</div>
+<p class="addr">台北市中山區敬業三路20號（美麗華百樂園本館 1F）</p>
+<p class="addr">台南市東區中華東路一段366號（南紡購物中心 A1館 1F）</p>
+</article>
+
+<article id="brand-lcore" class="card" data-cat="L’core" data-region="地址未提供"><h2>L’core</h2><span class="tag">L’core</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.ptt.cc/bbs/BeautySalon/M.1745803795.A.70F.html" target="_blank" rel="noopener">小心 L'core / Seacret / Premier 專櫃外國男…（2025-04-28）</a></li>
+<li><a href="https://www.dcard.tw/f/makeup/p/230527418" target="_blank" rel="noopener">關於 L’Core Paris。第一次發文就獻給這家讓我不知道該說什麼…</a></li>
+<li><a href="https://www.dcard.tw/f/makeup/p/229932645" target="_blank" rel="noopener">L’Core Paris 美妝板討論（頁面被擋，暫無法抓取全文開頭）</a></li>
+<li><a href="https://www.dcard.tw/f/makeup/p/232144723" target="_blank" rel="noopener">忠孝復興站 L’core Paris Taiwan 訪問買賣退費攻略。…</a></li>
+<li><a href="https://www.dcard.tw/f/mood/p/231347213" target="_blank" rel="noopener">Dcard 心情板討論（頁面被擋，暫無法抓取全文開頭）</a></li>
+</ul>
+<div class="section-label">相關新聞</div>
+<ul class="links">
+<li><a href="https://news.ltn.com.tw/news/life/breakingnews/2926447" target="_blank" rel="noopener">保養品公司靠外國帥哥招攬女客爭議多 北市法務局發布警訊（2019-09-25）</a></li>
+<li><a href="https://www.cna.com.tw/news/aloc/201909250101.aspx" target="_blank" rel="noopener">北市：聘外籍男招攬女客賣保養品 消費爭議多（2019-09-25）</a></li>
+<li><a href="https://www.mirrormedia.mg/story/20190716soc006" target="_blank" rel="noopener">【全文】強力推銷保養品糾紛頻傳 外籍型男毛手毛腳遭控性騷（2019-07-21）</a></li>
+</ul>
+<div class="section-label">門店地址</div><p class="empty">列表未提供</p>
+</article>
+
+<article id="brand-orogold" class="card" data-cat="Orogold" data-region="地址未提供"><h2>Orogold</h2><span class="tag">Orogold</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.threads.com/share/KHn4El8u4/" target="_blank" rel="noopener">爸爸昨天在百貨被自稱外國人的老闆推銷了將近 9 萬元的保養品&美容儀器…</a></li>
+</ul>
+<div class="section-label">相關新聞</div>
+<a class="preview" href="https://www.youtube.com/watch?v=1x-4_EeJWlE" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/1x-4_EeJWlE/hqdefault.jpg" alt=""><div class="body"><div class="kicker">YouTube</div><div class="title">逛醫療展被推銷買17萬只退3萬 男子控美容儀電到臉發痛（2026-01-04）</div></div></a>
+<div class="section-label">門店地址</div><p class="empty">列表未提供</p>
+</article>
+
+<article id="brand-seacret" class="card" data-cat="Seacret" data-region="台北市 新北市 台中市"><h2>Seacret</h2><span class="tag">Seacret</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.ptt.cc/bbs/BeautySalon/M.1745803795.A.70F.html" target="_blank" rel="noopener">小心 L'core / Seacret / Premier 專櫃外國男…（2025-04-28）</a></li>
+<li><a href="https://www.threads.com/share/GU7hcNsoi/" target="_blank" rel="noopener">宏匯廣場 #seacret 這間真的不推，強迫消費還態度惡劣…絕對不會…</a></li>
+</ul>
+<div class="section-label">相關新聞</div><p class="empty">列表未提供</p>
+<div class="section-label">門店地址</div>
+<p class="addr">台北市中山區敬業三路20號（美麗華百樂園本館 1F）</p>
+<p class="addr">新北市新莊區中原里新北大道四段3號（宏匯廣場 1F）</p>
+<p class="addr">臺中市西屯區惠來里臺灣大道三段251號（TOP CITY 台中大遠百 1F）</p>
+</article>
+
+<article id="brand-gratiae" class="card" data-cat="Gratiae" data-region="台北市"><h2>Gratiae</h2><span class="tag">Gratiae</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.ptt.cc/bbs/BeautySalon/M.1607791469.A.879.html" target="_blank" rel="noopener">小心微風南山 GRATiAE 專櫃另外一例訪問行銷。我真的沒想到自己會…（2020-12-12）</a></li>
+<li><a href="https://www.threads.com/share/HWiZzUqCx/" target="_blank" rel="noopener">突然翻到這張照片還沒刪！！！微風南山這個櫃位的櫃姐一直趁我去廁所想推銷…</a></li>
+<li><a href="https://www.dcard.tw/f/makeup/p/240088536" target="_blank" rel="noopener">Gratiae 美妝板討論（頁面被擋，暫無法抓取全文開頭）</a></li>
+</ul>
+<div class="section-label">相關新聞</div><p class="empty">列表未提供</p>
+<div class="section-label">門店地址</div>
+<p class="addr">台北市中山區敬業三路20號（美麗華百樂園本館 1F）</p>
+<p class="addr">台北市信義區松智路17號 B1（微風南山 2F）</p>
+<p class="addr">臺北市信義區興雅里忠孝東路五段8號（統一時代 1F）</p>
+<p class="addr">臺北市松山區中崙里復興南路一段39號（微風廣場 GF）</p>
+</article>
+
+<article id="brand-pearl-de-flore" class="card" data-cat="Pearl de Flore" data-region="台北市 新北市 新竹縣"><h2>Pearl de Flore</h2><span class="tag">Pearl de Flore</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.plurk.com/p/pgwznw" target="_blank" rel="noopener">決定還是發上來警示一下好了，關於媽媽被百貨公司專櫃的詐騙(?)保養品推…（2023-12-02）</a></li>
+<li><a href="https://www.threads.com/share/FsqBQ25CK/" target="_blank" rel="noopener">請大家避雷！就發生在剛剛，過去某百貨逛街突然被攔給試用包，然後倒一勺鹽…</a></li>
+<li><a href="https://www.threads.com/share/DPHZw7SPn/" target="_blank" rel="noopener">上次在天母新光三越經過一個好像叫 de flore 的櫃，她直接把海鹽…</a></li>
+<li><a href="https://www.threads.com/share/IqXea-0vo/" target="_blank" rel="noopener">今天晚上在外面買東西，經過一家專櫃被一個小男生說：姐姐你這個公事包我沒…</a></li>
+<li><a href="https://www.threads.com/share/FH5xuzILA/" target="_blank" rel="noopener">昨天又被強迫推銷了在竹北遠百一個叫pearl de flore的櫃…</a></li>
+</ul>
+<div class="section-label">相關新聞</div><p class="empty">列表未提供</p>
+<div class="section-label">門店地址</div>
+<p class="addr">臺北市松山區中正里南京東路三段337號（微風南京）</p>
+<p class="addr">新北市永和區保安里中山路一段238號（永和比漾）</p>
+<p class="addr">臺北市內湖區內湖里成功路四段188號（內湖 CITYLINK）</p>
+<p class="addr">臺北市信義區松山路11號（松山 CITYLINK）</p>
+<p class="addr">臺北市士林區天福里天母東路68號（新光三越天母）</p>
+<p class="addr">新竹縣竹北市十興里莊敬北路18號（遠百竹北）</p>
+</article>
+
+<article id="brand-lionesse" class="card" data-cat="Lionesse" data-region="台北市"><h2>Lionesse</h2><span class="tag">Lionesse</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.dcard.tw/f/makeup/p/239362626" target="_blank" rel="noopener">東區超沒水準的保養品牌 Lionesse。小妹在忠孝復興附近上班，走路…</a></li>
+</ul>
+<div class="section-label">相關新聞</div>
+<a class="preview" href="https://www.youtube.com/watch?v=Yy-wQlbCz9s" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/Yy-wQlbCz9s/hqdefault.jpg" alt=""><div class="body"><div class="kicker">YouTube</div><div class="title">東區外國人強迫推銷 警移民勞動局稽查（2021-03-12）</div></div></a>
+<div class="section-label">門店地址</div>
+<p class="addr">臺北市大安區仁愛里忠孝東路四段52號</p>
+</article>
+
+<article id="brand-arthemis" class="card" data-cat="Arthemis" data-region="台北市"><h2>Arthemis</h2><span class="tag">Arthemis</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.threads.com/share/KHn4El8u4/" target="_blank" rel="noopener">爸爸昨天在百貨被自稱外國人的老闆推銷了將近 9 萬元的保養品&美容儀器…</a></li>
+</ul>
+<div class="section-label">相關新聞</div>
+<ul class="links">
+<li><a href="https://tw.news.yahoo.com/share/333d2c2c-5b33-37ce-90d5-4a3215fc28bf" target="_blank" rel="noopener">不滿美容儀療效誇大 男子被強迫消費近14萬（2026-01-04）</a></li>
+</ul>
+<a class="preview" href="https://www.youtube.com/watch?v=1x-4_EeJWlE" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/1x-4_EeJWlE/hqdefault.jpg" alt=""><div class="body"><div class="kicker">YouTube</div><div class="title">逛醫療展被推銷買17萬只退3萬 男子控美容儀電到臉發痛（2026-01-04）</div></div></a>
+<a class="preview" href="https://www.youtube.com/watch?v=BP4hss0p4H4" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/BP4hss0p4H4/hqdefault.jpg" alt=""><div class="body"><div class="kicker">YouTube</div><div class="title">強力推銷保養品糾紛頻傳（2019-07-19）</div></div></a>
+
+<div class="section-label">門店地址</div>
+<p class="addr">臺北市大安區光武里復興南路一段145號</p>
+<p class="addr">臺北市士林區天福里天母東路68號（新光三越天母）</p>
+</article>
+
+<article id="brand-introstem" class="card" data-cat="Introstem" data-region="新北市"><h2>Introstem</h2><span class="tag">Introstem</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.threads.com/share/D91Uyc-Gt/" target="_blank" rel="noopener">是不是叫「INTROSTEM」保養品櫃的？我四月中去板橋誠品也被用同一…</a></li>
+<li><a href="https://www.threads.com/share/G4KdHVIpn/" target="_blank" rel="noopener">到三重的 citylink，經過一樓轉角處的某家保養品專櫃要小心，最好快步通過…</a></li>
+</ul>
+<div class="section-label">相關新聞</div><p class="empty">列表未提供</p>
+<div class="section-label">門店地址</div>
+<p class="addr">新北市樹林區樹新路40-6號（秀泰生活樹林店 1樓）</p>
+<p class="addr">新北市板橋區景星里中山路一段46號（誠品生活新板 1F）</p>
+</article>
+
+<article id="brand-avinichi" class="card" data-cat="Avinichi" data-region="台北市"><h2>Avinichi</h2><span class="tag">Avinichi</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.threads.com/@helenkao06/post/Dck7z97GnYf" target="_blank" rel="noopener">今天在中山北路南京東路口人行道上等綠燈，被 2 個從某門市走出來的女店…</a></li>
+</ul>
+<div class="section-label">相關新聞</div><p class="empty">列表未提供</p>
+<div class="section-label">門店地址</div>
+<p class="addr">臺北市中山區正得里南京東路一段2號</p>
+<p class="addr">臺北市大安區福住里信義路二段230號</p>
+</article>
+  
+  <article id="brand-napara" class="card" data-cat="Napara" data-region="台北市"><h2>Napara</h2><span class="tag">Napara</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.threads.com/share/GVOEQZoAY/" target="_blank" rel="noopener">今天在ATT4FUN又看到類似的強迫推銷專櫃這次的叫NAPAPA因為整個下午…</a></li>
+</ul>
+<div class="section-label">相關新聞</div><p class="empty">列表未提供</p>
+<div class="section-label">門店地址</div><p class="empty">列表未提供</p>
+</article>
+
+<article id="brand-hydrasphere" class="card" data-cat="Hydrasphere＋" data-region="台北市 新北市 台南市"><h2>Hydrasphere＋</h2><span class="tag">Hydrasphere＋</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.threads.com/share/D7bn785Xb/" target="_blank" rel="noopener">避雷 大家小心這間在a11門口的快閃店剛走在a11突然一個台灣男店員朝我方向衝…</a></li>
+<li><a href="https://www.threads.com/share/EyFap8MIT/" target="_blank" rel="noopener">女生去遠百板橋店請注意！有兩個男的(其中一個是外國人)，會在二樓手扶梯旁…</a></li>
+<li><a href="https://www.threads.com/share/HGB8G0Iht/" target="_blank" rel="noopener">在板橋小遠百那搭手扶梯有一位外國人給的，我拿了後，然後突然冒出一位台灣人…</a></li>
+</ul>
+<div class="section-label">相關新聞</div><p class="empty">列表未提供</p>
+<div class="section-label">門店地址</div>
+<p class="addr">臺南市東區成大里前鋒路210號（台南大遠百成功店 1F）</p>
+</article>
+
+  <section class="tree-box" id="relation">
+    <h2>吳斌相關公司與品牌關係圖</h2>
+    <p class="note">點紫色品牌可跳至該品牌。有判決資料的人名／公司，游標顯示案號，點擊開啟司法院判決書。</p>
+    <div class="legend">
+      <span><i style="background:#3d8f5c"></i>綠色＝吳斌本人</span>
+      <span><i style="background:#3d6ea3"></i>藍色＝前員工</span>
+      <span><i style="background:#c07a2a"></i>橘色＝合作代理</span>
+      <span><i style="background:#7b5aa8"></i>紫色＝品牌</span>
+      <span>虛線框＝共同代理</span>
+    </div>
+    <div class="ppt">
+      <div class="root">
+        <span class="node">
+          <a class="chip green" href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&id=TPDM,108%2c%e5%af%a9%e6%98%93%2c1353%2c20190826%2c1" target="_blank" rel="noopener">吳斌爾利米<span class="sub">Roben Jeremy Joseph（已潛逃）</span></a>
+          <a class="tip" href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&id=TPDM,108%2c%e5%af%a9%e6%98%93%2c1353%2c20190826%2c1" target="_blank" rel="noopener">臺灣臺北地方法院 108 年度審易字第 1353 號刑事判決</a>
+        </span>
+        <div class="own">
+          <div class="lab">旗下公司</div>
+          <span class="node">
+            <span class="chip company">杰爾有限公司</span>
+            <span class="tip">
+              <a href="https://news.ltn.com.tw/news/society/breakingnews/4005032" target="_blank" rel="noopener">外籍人士深夜放鞭炮還嗆居民 于美人曾痛批</a>
+            </span>
+          </span>
+          <span class="chip company">百優樂克斯有限公司</span>
+          <div class="lab">旗下品牌</div>
+          <span class="chip brand">Bonage</span>
+          <a class="chip brand" href="#brand-lcore">L'CORE</a>
+        </div>
+      </div>
+      <div class="branches">
+        <div class="branch">
+          <span class="node">
+            <a class="chip blue" href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&id=TPDM,110%2c%e5%af%a9%e7%b0%a1%2c2094%2c20211230%2c1" target="_blank" rel="noopener">Cohen Dorel<span class="sub">吳斌前員工</span></a>
+            <a class="tip" href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&id=TPDM,110%2c%e5%af%a9%e7%b0%a1%2c2094%2c20211230%2c1" target="_blank" rel="noopener">臺灣臺北地方法院 110 年度審簡字第 2094 號刑事判決</a>
+          </span>
+          <div class="lab">公司</div>
+          <span class="node">
+            <a class="chip company" href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&id=TNEV,113%2c%e5%8d%97%e6%b6%88%e7%b0%a1%2c11%2c20250123%2c1" target="_blank" rel="noopener">朵芯有限公司<span class="sub">前酷雷米</span></a>
+            <span class="tip tip-list">
+              <a href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&id=TNEV,113%2c%e5%8d%97%e6%b6%88%e7%b0%a1%2c11%2c20250123%2c1" target="_blank" rel="noopener">臺南簡易庭 113 年度南消簡字第 11 號民事判決</a>
+              <a href="https://tw.news.yahoo.com/share/333d2c2c-5b33-37ce-90d5-4a3215fc28bf" target="_blank" rel="noopener">不滿美容儀療效誇大 男子被強迫消費近14萬</a>
+            </span>
+          </span>
+          <div class="lab">品牌</div>
+          <a class="chip brand" href="#brand-truffoire">Truffoire</a>
+        </div>
+        <div class="branch">
+          <span class="chip blue">Rotman Barak<span class="sub">吳斌前員工</span></span>
+          <div class="lab">公司</div>
+          <span class="node">
+            <a class="chip company" href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&id=PCDV,115%2c%e5%af%a9%e8%a8%b4%2c1183%2c20260429%2c1" target="_blank" rel="noopener">荷芮有限公司</a>
+            <span class="tip tip-list">
+              <a href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&id=PCDV,115%2c%e5%af%a9%e8%a8%b4%2c1183%2c20260429%2c1" target="_blank" rel="noopener">臺灣新北地方法院 115 年度審訴字第 1183 號民事裁定</a>
+              <a href="https://tw.news.yahoo.com/share/63f6d4a6-5d80-3652-bf2e-677ba8c8176d" target="_blank" rel="noopener">北市中山商圈保養品牌疑涉強迫推銷 網友喊</a>
+              <a href="https://www.storm.mg/article/11073641" target="_blank" rel="noopener">「郭董也買過」他被這句話騙9萬元，店家拒</a>
+            </span>
+          </span>
+          <div class="lab">品牌</div>
+          <a class="chip brand shared" href="#brand-lavelier">Lavelier</a>
+          <a class="chip brand shared" href="#brand-vine-vera">Vine Vera</a>
+        </div>
+        <div class="branch no-link">
+          <span class="chip orange">道而</span>
+          <div class="lab">公司</div>
+          <span class="chip company">瑪嫚有限公司</span>
+          <span class="chip company">美悅美有限公司</span>
+          <span class="chip company">琳睿國際有限公司</span>
+          <span class="chip company">比美蒂有限公司</span>
+          <span class="chip company">保蒂有限公司</span>
+          <span class="chip company">頂尖有限公司</span>
+          <div class="lab">品牌</div>
+          <a class="chip brand shared" href="#brand-lavelier">Lavelier</a>
+          <a class="chip brand shared" href="#brand-vine-vera">Vine Vera</a>
+          <a class="chip brand" href="#brand-introstem">Introstem</a>
+          <a class="chip brand" href="#brand-gratiae">Gratiae</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+<section class="form-box" id="contribute">
+    <h2>歡迎各位提供資料</h2>
+    <p>補充帖文、新聞或門店地址，表單送出後會再整理進本頁。</p>
+    <a class="open-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfZqzLhyU8c3UJftI-UJpAJ9vbRxRxzsOeY8fJy-m4Ww_EYtw/viewform" target="_blank" rel="noopener">開啟 Google 表單</a>
+  </section>
+</div>
+<footer></footer>
+<script>
+function filterCards(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const cat=document.getElementById('cat').value;
+  const region=document.getElementById('region').value;
+  const cards=document.querySelectorAll('.card');
+  let shown=0;
+  cards.forEach(c=>{
+    const regions=c.dataset.region||'';
+    const show=(!q||c.innerText.toLowerCase().includes(q))
+      &&(!cat||(c.dataset.cat||'').includes(cat))
+      &&(!region||regions.includes(region));
+    c.style.display=show?'':'none';
+    if(show) shown++;
+  });
+  document.getElementById('stats').textContent='顯示 '+shown+' / '+cards.length+' 筆';
+}
+filterCards();
+
+document.querySelectorAll('#relation .node').forEach(n=>{
+  n.addEventListener('click', e=>{
+    if(e.target.closest('a.tip')) return;
+    const chip=e.target.closest('.chip');
+    if(!chip) return;
+    e.preventDefault();
+    document.querySelectorAll('#relation .node.open').forEach(x=>{ if(x!==n) x.classList.remove('open'); });
+    n.classList.toggle('open');
+  });
+});
+document.addEventListener('click', e=>{
+  if(!e.target.closest('#relation .node')){
+    document.querySelectorAll('#relation .node.open').forEach(x=>x.classList.remove('open'));
+  }
+});
+</script>
+</body>
+</html>
