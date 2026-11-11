@@ -1,60 +1,163 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>外籍保養品品牌在台大全</title>
-<style>
-:root{--bg:#0f1115;--card:#1a1d24;--text:#e8eaed;--muted:#9aa0a6;--accent:#ff4d4f;--border:#2a2f3a}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;padding:24px 16px}
-.wrap{max-width:720px;margin:0 auto}
-h1{font-size:1.6rem;margin-bottom:8px}
-.muted{color:var(--muted);font-size:.9rem;margin-bottom:20px}
-.warn{background:rgba(255,77,79,.15);border:1px solid rgba(255,77,79,.35);border-radius:12px;padding:14px 16px;color:#ffccc7;font-size:.9rem;margin-bottom:24px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:14px}
-.card h2{font-size:1.2rem;margin-bottom:10px;color:#ff7875}
-ul{list-style:none;padding:0}
-li{margin:8px 0;padding-left:14px;position:relative;font-size:.9rem}
-li::before{content:"•";position:absolute;left:0;color:var(--muted)}
-a{color:#7eb6ff;text-decoration:none}
-a:hover{text-decoration:underline}
-.addr{color:#d0d4db;font-size:.9rem;margin:4px 0 8px;padding-left:14px;position:relative}
-.addr::before{content:"•";position:absolute;left:0;color:var(--muted)}
-footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:32px}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>外籍保養品品牌在台大全</title>
+  <style>
+    :root {
+      --bg: #0f1115; --card: #1a1d24; --text: #e8eaed; --muted: #9aa0a6;
+      --accent: #ff4d4f; --accent-soft: rgba(255, 77, 79, 0.15); --border: #2a2f3a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
+    header { padding: 48px 20px 32px; text-align: center; background: linear-gradient(180deg,#1c1012 0%,var(--bg) 100%); border-bottom: 1px solid var(--border); }
+    header h1 { font-size: clamp(1.6rem,4vw,2.2rem); }
+    header p { color: var(--muted); max-width: 560px; margin: 12px auto 0; font-size: 0.95rem; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 24px 16px 80px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .toolbar input, .toolbar select { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 10px 12px; border-radius: 8px; font-size: 0.95rem; }
+    .toolbar input { flex: 1; min-width: 200px; }
+    .stats { color: var(--muted); font-size: 0.85rem; margin-bottom: 16px; }
+    .card { scroll-margin-top: 16px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px; margin-bottom: 14px; }
+    .card h2 { font-size: 1.55rem; margin-bottom: 8px; }
+    .tag { display: inline-block; font-size: 0.72rem; padding: 3px 8px; border-radius: 999px; background: var(--accent-soft); color: #ff7875; margin-bottom: 8px; }
+    .section-label { margin: 14px 0 8px; font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+    ul.links { list-style: none; padding-left: 0; }
+    ul.links li { position: relative; margin: 6px 0; padding-left: 16px; font-size: 0.9rem; word-break: break-word; }
+    ul.links li::before { content: "•"; position: absolute; left: 0; color: #9aa0a6; }
+    ul.links a { color: #7eb6ff; text-decoration: none; }
+    .addr { position: relative; color: #d0d4db; font-size: 0.92rem; margin: 4px 0; padding-left: 16px; }
+    .addr::before { content: "•"; position: absolute; left: 0; color: #9aa0a6; }
+    .form-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 16px 8px; margin-top: 36px; }
+    .form-box h2 { font-size: 1.15rem; margin-bottom: 10px; text-align: center; }
+    .form-box p { color: var(--muted); font-size: 0.85rem; text-align: center; margin-bottom: 14px; }
+    .form-box .open-btn { display: block; width: 100%; max-width: 360px; margin: 8px auto 16px; text-align: center; background: #1a73e8; color: #fff; text-decoration: none; padding: 12px 16px; border-radius: 10px; font-weight: 600; }
+    .tree-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 14px 22px; margin: 28px 0 18px; overflow-x: auto; }
+    .chip { display: inline-block; padding: 6px 10px; border-radius: 8px; font-size: 0.82rem; border: 1px solid var(--border); background: #22262e; color: var(--text); text-decoration: none; }
+    .chip.brand { background: #3b2454; border-color: #7b5aa8; color: #f0e6ff; }
+  </style>
 </head>
 <body>
+<header>
+  <h1>外籍保養品品牌在台大全</h1>
+  <p>最後更新：2026-11-12</p>
+</header>
 <div class="wrap">
-<h1>外籍保養品品牌在台大全</h1>
-<p class="muted">最後更新：2026-11-12</p>
-<div class="warn">完整版（含全部品牌、關係圖、表單）正在重新部署。以下為本次新增的 Facebook 帖文；完整檔案可向 Grok 索取下載後自行覆蓋 GitHub 的 index.html。</div>
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="搜尋品牌、地址、連結…" oninput="filterCards()" />
+    <select id="cat" onchange="filterCards()">
+      <option value="">全部品牌</option>
+      <option>Vine Vera</option><option>Lavelier</option><option>Opatra</option>
+      <option>Truffoire</option><option>L’core</option><option>Orogold</option>
+      <option>Seacret</option><option>Gratiae</option><option>Pearl de Flore</option>
+      <option>Lionesse</option><option>Arthemis</option><option>Introstem</option>
+      <option>Avinichi</option><option>Napara</option><option>Hydrasphere＋</option>
+      <option>Premier by Dead Sea</option><option>CbGaRDN</option><option>Bonage</option>
+      <option>+Voupre</option><option>Venofye</option>
+    </select>
+    <select id="region" onchange="filterCards()">
+      <option value="">全部地區</option>
+      <option>台北市</option><option>新北市</option><option>桃園市</option>
+      <option>新竹縣</option><option>台中市</option><option>台南市</option><option>地址未提供</option>
+    </select>
+  </div>
+  <div class="stats" id="stats"></div>
 
-<div class="card">
-<h2>Lavelier — 新增帖文</h2>
-<ul>
-<li><a href="https://www.facebook.com/share/p/1D2LD7x9Sx/" target="_blank" rel="noopener">住了20年這店家一直沒變 中山北路二段的店毛手毛腳拉拉扯扯好看嗎！不拿試用包也要被取笑</a></li>
-<li><a href="https://www.facebook.com/share/p/1FsY9EMeXm/" target="_blank" rel="noopener">住了20年這店家一直沒變…lavelier taiwan把我封鎖了 這麼多年的新聞究竟有多麼怕人看破手腳</a></li>
-</ul>
-</div>
-
-<div class="card">
-<h2>Vine Vera — 新增帖文</h2>
-<ul>
+<article id="brand-vine-vera" class="card" data-cat="Vine Vera" data-region="台北市 桃園市"><h2>Vine Vera</h2><span class="tag">Vine Vera</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
 <li><a href="https://www.facebook.com/share/p/1A1aoC7ZKe/" target="_blank" rel="noopener">大家經過台北市的南京東路一段，有經過一間叫做 Vine Vera，經常會有台灣人跟一個外國人，在路邊一直強迫推銷…</a></li>
 <li><a href="https://www.facebook.com/reel/168795805388138" target="_blank" rel="noopener">外籍男拒罩大鬧星巴克！囂張反拍正義姐喊歧視</a></li>
+<li><a href="https://www.threads.com/share/FIIQ20x6l/" target="_blank" rel="noopener">公開的保養品詐騙集團,在桃園新光三x旁邊，東區的微風也有櫃點…勇敢的說不。</a></li>
+<li><a href="https://www.threads.com/share/En7GREbhX/" target="_blank" rel="noopener">有人聽過 #VineVera 嗎 #強迫推銷 超煩…直接倒了一堆鹽在我手上！！！</a></li>
+<li><a href="https://www.threads.com/share/EAC75bGgj/" target="_blank" rel="noopener">不知道大家有沒有在中山經過這間店過？</a></li>
 </ul>
-</div>
+<div class="section-label">門店地址</div>
+<p class="addr">台北市信義區松智路17號B1（微風南山2F）</p>
+<p class="addr">台北市信義區忠孝東路五段68號（微風信義3F）</p>
+<p class="addr">台北市中山區南京東路一段42號</p>
+<p class="addr">桃園市桃園區中正路39號</p>
+</article>
 
-<div class="card">
-<h2>Opatra — 新增地址</h2>
+<article id="brand-lavelier" class="card" data-cat="Lavelier" data-region="台北市"><h2>Lavelier</h2><span class="tag">Lavelier</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.facebook.com/share/p/1D2LD7x9Sx/" target="_blank" rel="noopener">住了20年這店家一直沒變 中山北路二段的店毛手毛腳拉拉扯扯好看嗎！不拿試用包也要被取笑</a></li>
+<li><a href="https://www.facebook.com/share/p/1FsY9EMeXm/" target="_blank" rel="noopener">住了20年這店家一直沒變…lavelier taiwan把我封鎖了 這麼多年的新聞究竟有多麼怕人看破手腳</a></li>
+<li><a href="https://www.threads.com/share/EAtGxTbVp/" target="_blank" rel="noopener">小巨蛋的lavelier一大早又有外國人在隨機攔路人直接臭臉加速走過🙄</a></li>
+</ul>
+<div class="section-label">相關新聞</div>
+<ul class="links">
+<li><a href="https://news.tvbs.com.tw/local/3233628" target="_blank" rel="noopener">又是強迫推銷？外籍店員路人爆衝突　Lavelier黑歷史曝光（2026-06-17）</a></li>
+</ul>
+<div class="section-label">門店地址</div>
+<p class="addr">台北市中山區中山北路二段4-2號</p>
+<p class="addr">台北市松山區南京東路四段51號</p>
+</article>
+
+<article id="brand-opatra" class="card" data-cat="Opatra" data-region="台北市 新北市"><h2>Opatra</h2><span class="tag">Opatra</span>
+<div class="section-label">門店地址</div>
+<p class="addr">臺北市大安區車層里忠孝東路四段222號</p>
+<p class="addr">台北市士林區忠誠路二段55號（大葉高島屋 1樓）</p>
+<p class="addr">臺北市松山區中正里南京東路三段275號（G2000南京門市旁）</p>
+<p class="addr">台北市信義區忠孝東路五段68號（微風信義3F）</p>
 <p class="addr">新北市三重區捷運路60號（三重CITYLINK 1F）</p>
-</div>
+</article>
 
-<footer>
-<p>資料來源：公開社群貼文與新聞報導。本站不構成法律建議。</p>
-<p><a href="https://github.com/bbqporknchicken/coercivesale">GitHub 倉庫</a></p>
-</footer>
+<article id="brand-bonage" class="card" data-cat="Bonage" data-region="台北市"><h2>Bonage</h2><span class="tag">Bonage</span>
+<div class="section-label">相關帖文</div>
+<ul class="links">
+<li><a href="https://www.dcard.tw/f/mood/p/260811417" target="_blank" rel="noopener">中山捷運站五號出口怎麼了</a></li>
+<li><a href="https://www.dcard.tw/f/makeup/p/233454952" target="_blank" rel="noopener">問 BonAge有人用過嗎？</a></li>
+</ul>
+<div class="section-label">門店地址</div>
+<p class="addr">台北市大同區南京西路59號（近捷運中山站5號出口/ 藏壽司樓下）</p>
+</article>
+
+<article id="brand-cbgardn" class="card" data-cat="CbGaRDN" data-region="桃園市 新竹市 新竹縣 台中市"><h2>CbGaRDN</h2><span class="tag">CbGaRDN</span>
+<div class="section-label">門店地址</div>
+<p class="addr">桃園市桃園區中正路 20 號（桃園遠東百貨 1F）</p>
+<p class="addr">桃園市中壢區元化路 357 號（遠東 SOGO 中壢店）</p>
+<p class="addr">新竹市東區西大路 323 號（新竹大遠百 1F）</p>
+</article>
+
+<section class="tree-box" id="relation">
+  <h2>品牌關係示意</h2>
+  <p style="color:#9aa0a6;font-size:0.82rem">點紫色品牌可跳至該品牌</p>
+  <div style="margin-top:12px">
+    <a class="chip brand" href="#brand-lavelier">Lavelier</a>
+    <a class="chip brand" href="#brand-vine-vera">Vine Vera</a>
+    <a class="chip brand" href="#brand-opatra">Opatra</a>
+    <a class="chip brand" href="#brand-bonage">Bonage</a>
+    <a class="chip brand" href="#brand-cbgardn">CbGaRDN</a>
+  </div>
+</section>
+
+<section class="form-box" id="contribute">
+  <h2>歡迎各位提供資料</h2>
+  <p>補充帖文、新聞或門店地址，表單送出後會再整理進本頁。</p>
+  <a class="open-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfZqzLhyU8c3UJftI-UJpAJ9vbRxRxzsOeY8fJy-m4Ww_EYtw/viewform" target="_blank" rel="noopener">開啟 Google 表單</a>
+</section>
 </div>
+<script>
+function filterCards(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const cat=document.getElementById('cat').value;
+  const region=document.getElementById('region').value;
+  const cards=document.querySelectorAll('.card');
+  let shown=0;
+  cards.forEach(c=>{
+    const regions=c.dataset.region||'';
+    const show=(!q||c.innerText.toLowerCase().includes(q))
+      &&(!cat||(c.dataset.cat||'').includes(cat))
+      &&(!region||regions.includes(region));
+    c.style.display=show?'':'none';
+    if(show) shown++;
+  });
+  document.getElementById('stats').textContent='顯示 '+shown+' / '+cards.length+' 筆';
+}
+filterCards();
+</script>
 </body>
 </html>
