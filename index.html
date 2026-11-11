@@ -6,110 +6,66 @@
   <title>外籍保養品品牌在台大全</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", sans-serif; }
-    .brand-card { transition: opacity .2s; }
-    .brand-card.hidden { display: none; }
-    #relation .node { cursor: pointer; user-select: none; }
-    #relation .node.open > .children { display: block; }
-    #relation .children { display: none; margin-left: 1.2rem; border-left: 2px solid #374151; padding-left: .8rem; }
-    .chip { display: inline-block; padding: .15rem .5rem; border-radius: 9999px; font-size: .75rem; background: #1f2937; color: #e5e7eb; margin: .1rem; }
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans TC",sans-serif}
+    .brand-card{transition:opacity .2s}
+    .brand-card.hidden{display:none}
+    #relation .node{cursor:pointer;user-select:none}
+    #relation .node.open>.children{display:block}
+    #relation .children{display:none;margin-left:1.2rem;border-left:2px solid #374151;padding-left:.8rem}
+    .chip{display:inline-block;padding:.15rem .5rem;border-radius:9999px;font-size:.75rem;background:#1f2937;color:#e5e7eb;margin:.1rem}
   </style>
 </head>
 <body class="bg-gray-950 text-gray-100 min-h-screen">
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <header class="mb-8">
-      <h1 class="text-2xl md:text-3xl font-bold mb-2">外籍保養品品牌在台大全</h1>
-      <p class="text-gray-400 text-sm">最後更新：2026-11-12</p>
-      <p class="text-gray-500 text-sm mt-1">本頁彙整網路公開貼文與新聞，僅供參考，請自行判斷。</p>
-    </header>
-
-    <!-- Filter -->
-    <div class="flex flex-wrap gap-2 mb-6">
-      <button onclick="filterCards('all')" class="px-3 py-1 rounded-full bg-indigo-600 text-sm">全部</button>
-      <button onclick="filterCards('lavelier')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">Lavelier</button>
-      <button onclick="filterCards('vinevera')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">Vine Vera</button>
-      <button onclick="filterCards('opatra')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">Opatra</button>
-      <button onclick="filterCards('other')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">其他</button>
-      <button onclick="filterCards('taipei')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">台北市</button>
-      <button onclick="filterCards('newtaipei')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">新北市</button>
-    </div>
-
-    <!-- Brands -->
-    <div id="brands" class="space-y-6">
-
-      <!-- Lavelier -->
-      <div class="brand-card bg-gray-900 border border-gray-800 rounded-xl p-5" data-cat="lavelier" data-region="taipei">
-        <h2 class="text-xl font-semibold text-indigo-300 mb-2">Lavelier</h2>
-        <p class="addr text-gray-400 text-sm mb-3">台北市中山區中山北路二段</p>
-        <ul class="links space-y-1 text-sm">
-          <li><a class="text-blue-400 hover:underline" href="https://www.facebook.com/share/p/1D2LD7x9Sx/" target="_blank" rel="noopener">住了20年這店家一直沒變 中山北路二段的店毛手毛腳拉拉扯扯好看嗎！不拿試用包也要被取笑</a></li>
-          <li><a class="text-blue-400 hover:underline" href="https://www.facebook.com/share/p/1FsY9EMeXm/" target="_blank" rel="noopener">住了20年這店家一直沒變…lavelier taiwan把我封鎖了</a></li>
-          <li><a class="text-blue-400 hover:underline" href="https://www.threads.net/@xxxxxx" target="_blank" rel="noopener">Threads 相關討論</a></li>
-        </ul>
-      </div>
-
-      <!-- Vine Vera -->
-      <div class="brand-card bg-gray-900 border border-gray-800 rounded-xl p-5" data-cat="vinevera" data-region="taipei">
-        <h2 class="text-xl font-semibold text-indigo-300 mb-2">Vine Vera</h2>
-        <p class="addr text-gray-400 text-sm mb-3">台北市中山區南京東路一段</p>
-        <ul class="links space-y-1 text-sm">
-          <li><a class="text-blue-400 hover:underline" href="https://www.facebook.com/share/p/1A1aoC7ZKe/" target="_blank" rel="noopener">大家經過台北市的南京東路一段…Vine Vera…強迫推銷</a></li>
-          <li><a class="text-blue-400 hover:underline" href="https://www.facebook.com/reel/168795805388138" target="_blank" rel="noopener">外籍男拒罩大鬧星巴克！囂張反拍正義姐喊歧視</a></li>
-        </ul>
-      </div>
-
-      <!-- Opatra -->
-      <div class="brand-card bg-gray-900 border border-gray-800 rounded-xl p-5" data-cat="opatra" data-region="newtaipei taipei">
-        <h2 class="text-xl font-semibold text-indigo-300 mb-2">Opatra</h2>
-        <p class="addr text-gray-400 text-sm mb-3">新北市三重區捷運路60號（三重CITYLINK 1F）</p>
-        <ul class="links space-y-1 text-sm">
-          <li><a class="text-blue-400 hover:underline" href="#" target="_blank" rel="noopener">相關貼文</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Relation diagram placeholder -->
-    <section id="relation" class="mt-10 p-5 bg-gray-900 border border-gray-800 rounded-xl">
-      <h2 class="text-lg font-semibold mb-3">品牌關係示意</h2>
-      <div class="node">
-        <span class="chip">外籍保養品集團</span>
-        <div class="children">
-          <div class="node"><span class="chip">Lavelier</span></div>
-          <div class="node"><span class="chip">Vine Vera</span></div>
-          <div class="node"><span class="chip">Opatra</span></div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="mt-12 text-center text-gray-500 text-xs">
-      <p>資料來源：公開社群貼文與新聞報導。本站不構成法律建議。</p>
-      <p class="mt-1"><a href="https://github.com/bbqporknchicken/coercivesale" class="text-blue-400 hover:underline">GitHub</a></p>
-    </footer>
-  </div>
-
-  <script>
-    function filterCards(cat) {
-      document.querySelectorAll('.brand-card').forEach(card => {
-        const cats = (card.dataset.cat || '') + ' ' + (card.dataset.region || '');
-        if (cat === 'all' || cats.includes(cat)) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-    document.querySelectorAll('#relation .node').forEach(n => {
-      n.addEventListener('click', e => {
-        e.stopPropagation();
-        n.classList.toggle('open');
-      });
-    });
-    document.addEventListener('click', e => {
-      if (!e.target.closest('#relation .node')) {
-        document.querySelectorAll('#relation .node.open').forEach(x => x.classList.remove('open'));
-      }
-    });
-  </script>
+<div class="max-w-4xl mx-auto px-4 py-8">
+<header class="mb-8">
+<h1 class="text-2xl md:text-3xl font-bold mb-2">外籍保養品品牌在台大全</h1>
+<p class="text-gray-400 text-sm">最後更新：2026-11-12</p>
+<p class="text-gray-500 text-sm mt-1">本頁彙整網路公開貼文與新聞，僅供參考，請自行判斷。</p>
+</header>
+<div class="flex flex-wrap gap-2 mb-6">
+<button onclick="filterCards('all')" class="px-3 py-1 rounded-full bg-indigo-600 text-sm">全部</button>
+<button onclick="filterCards('lavelier')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">Lavelier</button>
+<button onclick="filterCards('vinevera')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">Vine Vera</button>
+<button onclick="filterCards('opatra')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">Opatra</button>
+<button onclick="filterCards('other')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">其他</button>
+<button onclick="filterCards('taipei')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">台北市</button>
+<button onclick="filterCards('newtaipei')" class="px-3 py-1 rounded-full bg-gray-800 text-sm hover:bg-gray-700">新北市</button>
+</div>
+<div id="brands" class="space-y-6">
+<div class="brand-card bg-gray-900 border border-gray-800 rounded-xl p-5" data-cat="lavelier" data-region="taipei">
+<h2 class="text-xl font-semibold text-indigo-300 mb-2">Lavelier</h2>
+<p class="addr text-gray-400 text-sm mb-3">台北市中山區中山北路二段</p>
+<ul class="links space-y-1 text-sm">
+<li><a class="text-blue-400 hover:underline" href="https://www.facebook.com/share/p/1D2LD7x9Sx/" target="_blank" rel="noopener">住了20年這店家一直沒變 中山北路二段的店毛手毛腳拉拉扯扯好看嗎！不拿試用包也要被取笑</a></li>
+<li><a class="text-blue-400 hover:underline" href="https://www.facebook.com/share/p/1FsY9EMeXm/" target="_blank" rel="noopener">住了20年這店家一直沒變…lavelier taiwan把我封鎖了</a></li>
+</ul>
+</div>
+<div class="brand-card bg-gray-900 border border-gray-800 rounded-xl p-5" data-cat="vinevera" data-region="taipei">
+<h2 class="text-xl font-semibold text-indigo-300 mb-2">Vine Vera</h2>
+<p class="addr text-gray-400 text-sm mb-3">台北市中山區南京東路一段</p>
+<ul class="links space-y-1 text-sm">
+<li><a class="text-blue-400 hover:underline" href="https://www.facebook.com/share/p/1A1aoC7ZKe/" target="_blank" rel="noopener">大家經過台北市的南京東路一段…Vine Vera…強迫推銷</a></li>
+<li><a class="text-blue-400 hover:underline" href="https://www.facebook.com/reel/168795805388138" target="_blank" rel="noopener">外籍男拒罩大鬧星巴克！囂張反拍正義姐喊歧視</a></li>
+</ul>
+</div>
+<div class="brand-card bg-gray-900 border border-gray-800 rounded-xl p-5" data-cat="opatra" data-region="newtaipei taipei">
+<h2 class="text-xl font-semibold text-indigo-300 mb-2">Opatra</h2>
+<p class="addr text-gray-400 text-sm mb-3">新北市三重區捷運路60號（三重CITYLINK 1F）</p>
+<ul class="links space-y-1 text-sm">
+<li><a class="text-blue-400 hover:underline" href="#" target="_blank" rel="noopener">相關貼文</a></li>
+</ul>
+</div>
+</div>
+<section id="relation" class="mt-10 p-5 bg-gray-900 border border-gray-800 rounded-xl">
+<h2 class="text-lg font-semibold mb-3">品牌關係示意</h2>
+<div class="node"><span class="chip">外籍保養品集團</span><div class="children"><div class="node"><span class="chip">Lavelier</span></div><div class="node"><span class="chip">Vine Vera</span></div><div class="node"><span class="chip">Opatra</span></div></div></div>
+</section>
+<footer class="mt-12 text-center text-gray-500 text-xs"><p>資料來源：公開社群貼文與新聞報導。本站不構成法律建議。</p><p class="mt-1"><a href="https://github.com/bbqporknchicken/coercivesale" class="text-blue-400 hover:underline">GitHub</a></p></footer>
+</div>
+<script>
+function filterCards(cat){document.querySelectorAll('.brand-card').forEach(card=>{const cats=(card.dataset.cat||'')+' '+(card.dataset.region||'');if(cat==='all'||cats.includes(cat)){card.classList.remove('hidden')}else{card.classList.add('hidden')}})}
+document.querySelectorAll('#relation .node').forEach(n=>{n.addEventListener('click',e=>{e.stopPropagation();n.classList.toggle('open')})});
+document.addEventListener('click',e=>{if(!e.target.closest('#relation .node')){document.querySelectorAll('#relation .node.open').forEach(x=>x.classList.remove('open'))}});
+</script>
 </body>
-<html>
+</html>
